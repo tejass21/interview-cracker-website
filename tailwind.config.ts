@@ -78,6 +78,8 @@ export default {
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
 				'glow': 'var(--shadow-glow)',
+				'neon': 'var(--shadow-neon)',
+				'accent': 'var(--shadow-accent)',
 			},
 			keyframes: {
 				'accordion-down': {

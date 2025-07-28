@@ -58,25 +58,25 @@ const FeaturesSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="relative overflow-hidden group hover:shadow-elegant transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+            <Card key={index} className="card-interactive group border-0 bg-card/90 backdrop-blur-sm hover-lift">
               <CardContent className="p-8">
                 <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     {feature.badge}
                   </Badge>
                 </div>
                 
-                <div className="bg-gradient-primary p-3 rounded-xl w-fit mb-6">
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+                <div className="bg-gradient-primary p-4 rounded-xl w-fit mb-6 group-hover:shadow-glow transition-all duration-300">
+                  <feature.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-4 text-foreground">
+                <h3 className="text-xl font-semibold mb-4 gradient-text">
                   {feature.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                   {feature.description}
                 </p>
               </CardContent>
