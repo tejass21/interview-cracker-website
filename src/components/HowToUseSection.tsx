@@ -26,7 +26,7 @@ const steps = [
 
 const HowToUseSection = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="how-to-use" className="py-20 bg-muted/30">
       <div className="container px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
