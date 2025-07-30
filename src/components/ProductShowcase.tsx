@@ -44,20 +44,6 @@ const ProductShowcase = () => {
             </p>
           </Card>
 
-          {/* Quick Response Feature */}
-          <Card className="p-6 glow-border hover-lift group lg:col-span-2 xl:col-span-1">
-            <div className="mb-4">
-              <img 
-                src="/lovable-uploads/781fc999-b699-45d9-a5ee-7591b3ae807c.png" 
-                alt="Quick Response Interface"
-                className="w-full rounded-lg shadow-lg group-hover:shadow-glow transition-shadow duration-300"
-              />
-            </div>
-            <h3 className="text-lg font-semibold mb-2">One-Click Answers</h3>
-            <p className="text-muted-foreground text-sm">
-              Instant responses to any interview question with keyboard shortcuts
-            </p>
-          </Card>
         </div>
       </div>
     </section>
