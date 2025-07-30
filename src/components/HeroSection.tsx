@@ -5,6 +5,9 @@ import { Download, Shield, Zap, Eye } from "lucide-react";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
+      {/* Animated dot background */}
+      <div className="absolute inset-0 dots-pattern" />
+      
       {/* Animated background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/30" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl floating" />
