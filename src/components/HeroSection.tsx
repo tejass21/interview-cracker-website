@@ -19,44 +19,44 @@ const HeroSection = () => {
           🏆 100% Interview Success Guarantee
         </Badge>
         
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          <span className="gradient-text">Interview Cracker</span>
-          <span className="block text-3xl md:text-5xl font-medium opacity-90 mt-2">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight tracking-tight">
+          <span className="gradient-text bg-gradient-text bg-clip-text text-transparent">Interview Cracker</span>
+          <span className="block text-3xl md:text-5xl lg:text-6xl font-medium text-foreground/90 mt-2 font-sans">
             AI-Powered Interview Assistant
           </span>
         </h1>
         
-        <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90 leading-relaxed">
-          One of our users successfully landed a <span className="gradient-text font-bold">₹50 LPA package</span> using this software.
+        <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-foreground/80 leading-relaxed font-medium">
+          One of our users successfully landed a <span className="gradient-text bg-gradient-text bg-clip-text text-transparent font-bold">₹50 LPA package</span> using this software.
           Join the growing list of candidates who are cracking top-tier interviews with confidence and ease.
         </p>
         
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          <div className="flex items-center gap-2 glow-border px-6 py-3 rounded-full backdrop-blur-sm hover-lift group">
-            <Shield className="w-5 h-5 group-hover:text-primary transition-colors" />
-            <span className="font-medium">Undetectable</span>
+        <div className="flex flex-wrap gap-6 justify-center mb-16">
+          <div className="flex items-center gap-3 bg-gradient-card px-8 py-4 rounded-2xl border border-primary/20 backdrop-blur-sm hover-lift group shadow-card">
+            <Shield className="w-6 h-6 text-primary group-hover:text-primary-glow transition-colors duration-300" />
+            <span className="font-medium text-lg">Undetectable</span>
           </div>
-          <div className="flex items-center gap-2 glow-border px-6 py-3 rounded-full backdrop-blur-sm hover-lift group">
-            <Zap className="w-5 h-5 group-hover:text-accent transition-colors" />
-            <span className="font-medium">Instant Response</span>
+          <div className="flex items-center gap-3 bg-gradient-card px-8 py-4 rounded-2xl border border-accent/20 backdrop-blur-sm hover-lift group shadow-card">
+            <Zap className="w-6 h-6 text-accent group-hover:text-accent-glow transition-colors duration-300" />
+            <span className="font-medium text-lg">Instant Response</span>
           </div>
-          <div className="flex items-center gap-2 glow-border px-6 py-3 rounded-full backdrop-blur-sm hover-lift group">
-            <Eye className="w-5 h-5 group-hover:text-primary transition-colors" />
-            <span className="font-medium">Screen Share Safe</span>
+          <div className="flex items-center gap-3 bg-gradient-card px-8 py-4 rounded-2xl border border-primary/20 backdrop-blur-sm hover-lift group shadow-card">
+            <Eye className="w-6 h-6 text-primary group-hover:text-primary-glow transition-colors duration-300" />
+            <span className="font-medium text-lg">Screen Share Safe</span>
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4 hover-lift shadow-glow hover:shadow-neon transition-all duration-300">
-            <Download className="w-5 h-5 mr-2" />
+        <div className="flex flex-col sm:flex-row gap-8 justify-center mb-8">
+          <Button variant="hero" size="lg" className="text-lg px-12 py-6 font-semibold hover-lift shadow-glow hover:shadow-neon transition-all duration-300 rounded-2xl">
+            <Download className="w-6 h-6 mr-3" />
             Download Now
           </Button>
-          <Button variant="outline-hero" size="lg" className="text-lg px-8 py-4 hover-lift">
+          <Button variant="outline-hero" size="lg" className="text-lg px-12 py-6 font-semibold hover-lift rounded-2xl border-2 border-primary/30 hover:border-primary/60 transition-all duration-300">
             View Features
           </Button>
         </div>
         
-        <p className="mt-6 text-sm opacity-80">
+        <p className="text-base text-foreground/60 font-medium">
           5 free trial responses • No credit card required
         </p>
       </div>
