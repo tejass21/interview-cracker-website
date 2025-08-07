@@ -40,7 +40,7 @@ const HowToUseSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-screen-lg mx-auto">
           {steps.map((step, index) => (
             <Card key={index} className="relative overflow-hidden border-0 shadow-elegant">
               <CardHeader className="text-center pb-4">
@@ -63,7 +63,7 @@ const HowToUseSection = () => {
           ))}
         </div>
         
-        <div className="text-center bg-card rounded-2xl p-8 shadow-elegant">
+        <div className="text-center bg-card rounded-2xl p-8 shadow-elegant max-w-screen-md mx-auto">
           <h3 className="text-2xl font-semibold mb-4 flex items-center justify-center gap-2">
             <Mail className="w-6 h-6 text-primary" />
             Ready to Upgrade?

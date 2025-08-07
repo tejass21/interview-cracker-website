@@ -96,8 +96,8 @@ const PricingSection = () => {
           </Card>
         </div>
         
-        <div className="text-center mt-12">
-          <div className="bg-card rounded-2xl p-8 shadow-elegant max-w-xl mx-auto">
+        <div className="text-center mt-12 max-w-xl mx-auto">
+          <div className="bg-card rounded-2xl p-8 shadow-elegant">
             <h3 className="text-xl font-semibold mb-4">Why Choose Our Premium Plan?</h3>
             <p className="text-muted-foreground mb-6">
               Join hundreds of successful candidates who have landed their dream jobs using Interview Cracker. 

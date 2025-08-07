@@ -17,14 +17,14 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 w-full">
           {/* Logo */}
           <div className="flex items-center">
             <span className="text-xl font-bold gradient-text">Interview Cracker</span>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center justify-center flex-1 space-x-6 lg:space-x-8">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -53,7 +53,10 @@ const Navbar = () => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            
+          </div>
+
+          {/* Desktop Download Button */}
+          <div className="hidden md:flex">
             <Button variant="hero" size="sm" className="hover-lift">
               <Download className="w-4 h-4 mr-2" />
               Download
@@ -61,7 +64,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <Button
               variant="ghost"
               size="sm"
@@ -74,27 +77,27 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md px-4 py-3">
+            <div className="space-y-2">
               <button 
                 onClick={() => scrollToSection('features')}
-                className="block px-3 py-2 text-foreground/80 hover:text-foreground transition-colors w-full text-left"
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-foreground transition-colors"
               >
                 Features
               </button>
               <button 
                 onClick={() => scrollToSection('how-to-use')}
-                className="block px-3 py-2 text-foreground/80 hover:text-foreground transition-colors w-full text-left"
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-foreground transition-colors"
               >
                 How It Works
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="block px-3 py-2 text-foreground/80 hover:text-foreground transition-colors w-full text-left"
+                className="block w-full text-left px-3 py-2 text-foreground/80 hover:text-foreground transition-colors"
               >
                 Pricing
               </button>
-              <div className="px-3 py-2">
+              <div className="pt-2">
                 <Button variant="hero" size="sm" className="w-full">
                   <Download className="w-4 h-4 mr-2" />
                   Download

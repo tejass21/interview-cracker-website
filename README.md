@@ -1,18 +1,10 @@
-# Welcome to your Lovable project
-
 ## Project info
 
-**URL**: https://lovable.dev/projects/f796a8b2-145f-4f93-bc33-6bee5a57dda2
+**URL**: 
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/f796a8b2-145f-4f93-bc33-6bee5a57dda2) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -62,7 +54,20 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/f796a8b2-145f-4f93-bc33-6bee5a57dda2) and click on Share -> Publish.
+To deploy your project, follow these steps:
+
+1.  Build the project:
+
+    ```bash
+    npm run build
+    ```
+
+2.  Preview the build:
+
+    ```bash
+    npm run preview
+    ```
+This will build your project for production into the `dist` folder. You can then deploy the contents of the `dist` folder to any static hosting service.
 
 ## Can I connect a custom domain to my Lovable project?
 

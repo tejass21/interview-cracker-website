@@ -8,12 +8,14 @@ import TestingSection from "@/components/TestingSection";
 import PricingSection from "@/components/PricingSection";
 import DownloadSection from "@/components/DownloadSection";
 import Footer from "@/components/Footer";
+import PlatformSection from "@/components/PlatformSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <PlatformSection />
       <ProductShowcase />
       <FeaturesSection />
       <HowToUseSection />

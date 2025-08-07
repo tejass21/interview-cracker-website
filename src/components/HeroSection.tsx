@@ -49,10 +49,13 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-8 justify-center mb-8">
           <Button variant="hero" size="lg" className="text-lg px-12 py-6 font-semibold hover-lift shadow-glow hover:shadow-neon transition-all duration-300 rounded-2xl">
             <Download className="w-6 h-6 mr-3" />
-            Download Now
+            Download for Windows
           </Button>
-          <Button variant="outline-hero" size="lg" className="text-lg px-12 py-6 font-semibold hover-lift rounded-2xl border-2 border-primary/30 hover:border-primary/60 transition-all duration-300">
-            View Features
+          <Button variant="hero" size="lg" className="text-lg px-12 py-6 font-semibold hover-lift shadow-glow hover:shadow-neon transition-all duration-300 rounded-2xl"
+            onClick={() => window.open('https://www.example.com/download-mac', '_blank')}
+          >
+            <Download className="w-6 h-6 mr-3" />
+            Download for Mac
           </Button>
         </div>
         
