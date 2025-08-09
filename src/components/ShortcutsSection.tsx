@@ -32,7 +32,7 @@ const shortcuts = [
 
 const ShortcutsSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="shortcuts" className="py-20 bg-background">
       <div className="container px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">

@@ -9,6 +9,9 @@ import PricingSection from "@/components/PricingSection";
 import DownloadSection from "@/components/DownloadSection";
 import Footer from "@/components/Footer";
 import PlatformSection from "@/components/PlatformSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => {
   return (
@@ -23,7 +26,10 @@ const Index = () => {
       <TestingSection />
       <PricingSection />
       <DownloadSection />
+      <TestimonialsSection />
+      <FAQSection />
       <Footer />
+      <FloatingCTA />
     </div>
   );
 };

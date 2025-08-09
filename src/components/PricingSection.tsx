@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, DollarSign, Star, Shield, Zap } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const features = [
   "Unlimited AI responses during interviews",
@@ -81,14 +82,14 @@ const PricingSection = () => {
                   variant="default" 
                   size="lg" 
                   className="w-full bg-gradient-primary hover:shadow-glow transition-all"
-                  onClick={() => window.open('mailto:interviewcrackertips@gmail.com', '_blank')}
+                  onClick={() => window.open('https://wa.me/919764980107', '_blank')}
                 >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Get Custom Pricing
+                  <FaWhatsapp className="w-4 h-4 mr-2" />
+                  +91 9764980107
                 </Button>
                 <p className="text-sm text-muted-foreground">
                   Contact us at{" "}
-                  <span className="font-medium text-primary">interviewcrackertips@gmail.com</span>
+                  <span className="font-medium text-primary">+91 9764980107</span>
                   {" "}for detailed pricing information
                 </p>
               </div>

@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, Apple, Monitor, Mail, Shield, AlertTriangle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const downloads = [
   {
@@ -13,8 +14,9 @@ const downloads = [
   {
     platform: "Windows",
     icon: Monitor,
-    url: "https://drive.google.com/file/d/14s7Igwq3XiT0GGY-LPKIH4txAihGkOse/view?usp=drive_link",
-    description: "Compatible with Windows 10 and later"
+    url: "/assest/InterviewCrackerSetup.exe",
+    description: "Compatible with Windows 10 and later",
+    isLocalFile: true
   }
 ];
 
@@ -27,7 +29,7 @@ const usageRules = [
 
 const DownloadSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="downloads" className="py-20 bg-background">
       <div className="container px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
@@ -56,7 +58,20 @@ const DownloadSection = () => {
                   variant="default" 
                   size="lg" 
                   className="w-full bg-gradient-primary hover:shadow-glow transition-all"
-                  onClick={() => window.open(download.url, '_blank')}
+                  onClick={() => {
+                    if (download.platform === "Windows") {
+                      // Create a temporary link element to trigger download
+                      const link = document.createElement('a');
+                      link.href = '/assest/InterviewCrackerSetup.exe';
+                      link.download = 'InterviewCrackerSetup.exe';
+                      link.style.display = 'none';
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    } else {
+                      window.open(download.url, '_blank');
+                    }
+                  }}
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download for {download.platform}
@@ -99,8 +114,8 @@ const DownloadSection = () => {
               <p className="text-muted-foreground">
                 Linux version is available upon request. Contact our support team for assistance.
               </p>
-              <Button variant="outline" className="w-full" onClick={() => window.open('mailto:interviewcrackertips@gmail.com', '_blank')}>
-                <Mail className="w-4 h-4 mr-2" />
+              <Button variant="outline" className="w-full" onClick={() => window.open('https://wa.me/919764980107', '_blank')}>
+                <FaWhatsapp className="w-4 h-4 mr-2" />
                 Contact for Linux Version
               </Button>
             </CardContent>
@@ -113,12 +128,23 @@ const DownloadSection = () => {
             Download the app now and take the first step towards your dream job
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-glow">
+            <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-glow"
+              onClick={() => {
+                // Create a temporary link element to trigger download
+                const link = document.createElement('a');
+                link.href = '/assest/InterviewCrackerSetup.exe';
+                link.download = 'InterviewCrackerSetup.exe';
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               <Download className="w-4 h-4 mr-2" />
-              Download Now
+              Download for Windows
             </Button>
-            <Button variant="outline" size="lg" onClick={() => window.open('mailto:interviewcrackertips@gmail.com', '_blank')}>
-              <Mail className="w-4 h-4 mr-2" />
+            <Button variant="outline" size="lg" onClick={() => window.open('https://wa.me/919764980107', '_blank')}>
+              <FaWhatsapp className="w-4 h-4 mr-2" />
               Contact Support
             </Button>
           </div>

@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Download, Gift, CreditCard, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const steps = [
   {
@@ -65,15 +66,17 @@ const HowToUseSection = () => {
         
         <div className="text-center bg-card rounded-2xl p-8 shadow-elegant max-w-screen-md mx-auto">
           <h3 className="text-2xl font-semibold mb-4 flex items-center justify-center gap-2">
-            <Mail className="w-6 h-6 text-primary" />
+            <FaWhatsapp className="w-6 h-6 text-primary" />
             Ready to Upgrade?
           </h3>
           <p className="text-muted-foreground mb-6">
             Contact us to upgrade your plan and unlock unlimited responses
           </p>
-          <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-glow transition-all">
-            <Mail className="w-4 h-4 mr-2" />
-            interviewcrackertips@gmail.com
+          <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-glow transition-all"
+            onClick={() => window.open('https://wa.me/919764980107', '_blank')}
+          >
+            <FaWhatsapp className="w-4 h-4 mr-2" />
+            +91 9764980107
           </Button>
         </div>
       </div>

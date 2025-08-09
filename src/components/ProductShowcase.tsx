@@ -46,7 +46,7 @@ const ProductShowcase = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {productShowcaseItems.map((item, index) => (
             <Card key={index} className="p-6 glow-border hover-lift group">
               <div className="mb-4">

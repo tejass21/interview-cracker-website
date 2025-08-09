@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Shield, Heart, ExternalLink } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -25,6 +26,8 @@ const Footer = () => {
               <li><a href="#how-to-use" className="hover:text-primary-foreground transition-colors">How to Use</a></li>
               <li><a href="#shortcuts" className="hover:text-primary-foreground transition-colors">Keyboard Shortcuts</a></li>
               <li><a href="#testing" className="hover:text-primary-foreground transition-colors">Testing Guide</a></li>
+              <li><a href="#testimonials" className="hover:text-primary-foreground transition-colors">Testimonials</a></li>
+              <li><a href="#faq" className="hover:text-primary-foreground transition-colors">FAQ</a></li>
               <li><a href="#pricing" className="hover:text-primary-foreground transition-colors">Pricing</a></li>
             </ul>
           </div>
@@ -35,10 +38,10 @@ const Footer = () => {
               <Button 
                 variant="hero" 
                 className="w-full justify-start bg-primary-foreground/10 hover:bg-primary-foreground/20"
-                onClick={() => window.open('mailto:interviewcrackertips@gmail.com', '_blank')}
+                onClick={() => window.open('https://wa.me/919764980107', '_blank')}
               >
-                <Mail className="w-4 h-4 mr-2" />
-                interviewcrackertips@gmail.com
+                <FaWhatsapp className="w-4 h-4 mr-2" />
+                +91 9764980107
               </Button>
               <div className="flex items-center gap-2 text-sm text-primary-foreground/80">
                 <Shield className="w-4 h-4" />
