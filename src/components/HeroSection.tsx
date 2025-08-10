@@ -71,7 +71,7 @@ const HeroSection = () => {
         </div>
         
         <p className="text-base text-foreground/60 font-medium">
-          5 free trial responses • No credit card required
+          10 free trial responses • No credit card required
         </p>
       </div>
     </section>
