@@ -17,27 +17,27 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Index />} />
         <Route
-          path="/sign-in"
+          path="/sign-in/*"
           element={
             <div className="min-h-screen flex items-center justify-center px-4">
               <SignedIn>
                 <Navigate to="/" replace />
               </SignedIn>
               <SignedOut>
-                <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" afterSignInUrl="/" />
+                <SignIn signUpUrl="/sign-up" />
               </SignedOut>
             </div>
           }
         />
         <Route
-          path="/sign-up"
+          path="/sign-up/*"
           element={
             <div className="min-h-screen flex items-center justify-center px-4">
               <SignedIn>
                 <Navigate to="/" replace />
               </SignedIn>
               <SignedOut>
-                <SignUp routing="path" path="/sign-up" signInUrl="/sign-in" afterSignUpUrl="/" />
+                <SignUp signInUrl="/sign-in" />
               </SignedOut>
             </div>
           }
