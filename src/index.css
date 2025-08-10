@@ -80,6 +80,7 @@ All colors MUST be HSL.
 
     --primary: 222 89% 55%;
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 222 100% 70%;
 
     --secondary: 230 15% 12%;
     --secondary-foreground: 210 40% 100%;
@@ -89,6 +90,7 @@ All colors MUST be HSL.
 
     --accent: 268 85% 62%;
     --accent-foreground: 0 0% 100%;
+    --accent-glow: 268 100% 72%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
@@ -96,6 +98,24 @@ All colors MUST be HSL.
     --border: 230 14% 18%;
     --input: 230 14% 18%;
     --ring: 222 89% 55%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(222 89% 55%) 0%, hsl(268 85% 62%) 50%, hsl(222 100% 70%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(268 85% 62%) 0%, hsl(222 89% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(230 15% 6%) 0%, hsl(230 15% 8%) 40%, hsl(230 15% 10%) 80%, hsl(222 89% 55% / 0.12) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(230 15% 8%) 0%, hsl(230 15% 10%) 100%);
+    --gradient-border: linear-gradient(135deg, hsl(222 89% 55% / 0.35) 0%, hsl(268 85% 62% / 0.35) 50%, hsl(222 89% 55% / 0.35) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(222 89% 75%) 0%, hsl(268 85% 72%) 50%, hsl(222 100% 78%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(230 15% 6%) 0%, hsl(230 15% 10%) 100%);
+
+    /* Dark shadows */
+    --shadow-elegant: 0 25px 50px -12px hsl(230 20% 3% / 0.75);
+    --shadow-glow: 0 0 70px hsl(222 89% 55% / 0.28);
+    --shadow-neon: 0 0 42px hsl(268 85% 62% / 0.55);
+    --shadow-accent: 0 15px 35px hsl(268 85% 62% / 0.22);
+    --shadow-card: 0 8px 32px hsl(230 20% 3% / 0.6);
+
+    /* Sidebar (dark) */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
