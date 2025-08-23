@@ -1,30 +1,29 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, Apple, Monitor, Mail, Shield, AlertTriangle } from "lucide-react";
+import { Download, Shield, AlertTriangle, Monitor, Apple } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const downloads = [
   {
-    platform: "macOS",
-    icon: Apple,
-    url: "https://drive.google.com/file/d/1_8KWm3eYJ48D1hdTEJlvwLBtqfv91ohy/view?usp=drive_link",
-    description: "Compatible with macOS 10.14 and later"
+    platform: "Windows",
+    description: "Compatible with Windows 10/11",
+    icon: Monitor,
+    url: "/assest/InterviewCrackerSetup.exe"
   },
   {
-    platform: "Windows",
-    icon: Monitor,
-    url: "/assest/InterviewCrackerSetup.exe",
-    description: "Compatible with Windows 10 and later",
-    isLocalFile: true
+    platform: "Mac",
+    description: "Compatible with macOS 10.15+",
+    icon: Apple,
+    url: "https://drive.google.com/file/d/1tOIF8UiAWO_v8bm5uDrkbdJ278JQPKrt/view"
   }
 ];
 
 const usageRules = [
-  "Forward your interview confirmation email to interviewcrackertips@gmail.com",
-  "Do not share this app with friends or third parties",
-  "Do not resell access to the application",
-  "Only use the tool until you secure your job offer"
+  "Use responsibly and ethically during interviews",
+  "Ensure stable internet connection for optimal performance",
+  "Keep the app updated to the latest version",
+  "Contact support if you encounter any issues"
 ];
 
 const DownloadSection = () => {
@@ -33,10 +32,10 @@ const DownloadSection = () => {
       <div className="container px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            📥 Download Links
+            📥 Download
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Get Started Today
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Get DesierAI Now
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Choose your platform and start cracking interviews with confidence
@@ -45,19 +44,19 @@ const DownloadSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {downloads.map((download, index) => (
-            <Card key={index} className="border-0 shadow-elegant hover:shadow-glow transition-all duration-300 group">
+            <Card key={index} className="border border-border bg-card hover-lift shadow-sm transition-all duration-200 group">
               <CardHeader className="text-center pb-4">
-                <div className="bg-gradient-primary p-4 rounded-xl w-fit mx-auto mb-4 group-hover:shadow-glow transition-all">
+                <div className="bg-primary p-4 rounded-lg w-fit mx-auto mb-4">
                   <download.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-2xl">{download.platform}</CardTitle>
+                <CardTitle className="text-2xl text-foreground">{download.platform}</CardTitle>
                 <p className="text-muted-foreground">{download.description}</p>
               </CardHeader>
               <CardContent className="text-center pt-0">
                 <Button 
                   variant="default" 
                   size="lg" 
-                  className="w-full bg-gradient-primary hover:shadow-glow transition-all"
+                  className="w-full"
                   onClick={() => {
                     if (download.platform === "Windows") {
                       // Create a temporary link element to trigger download
@@ -82,10 +81,10 @@ const DownloadSection = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="border-0 shadow-elegant">
+          <Card className="border border-border bg-card shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl">
-                <Shield className="w-6 h-6 text-accent" />
+              <CardTitle className="flex items-center gap-2 text-xl text-foreground">
+                <Shield className="w-6 h-6 text-primary" />
                 Usage Rules
               </CardTitle>
             </CardHeader>
@@ -103,9 +102,9 @@ const DownloadSection = () => {
             </CardContent>
           </Card>
           
-          <Card className="border-0 shadow-elegant">
+          <Card className="border border-border bg-card shadow-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-xl">
+              <CardTitle className="flex items-center gap-2 text-xl text-foreground">
                 <AlertTriangle className="w-6 h-6 text-primary" />
                 Need Linux Support?
               </CardTitle>
@@ -122,13 +121,13 @@ const DownloadSection = () => {
           </Card>
         </div>
         
-        <div className="text-center mt-12 bg-card rounded-2xl p-8 shadow-elegant">
-          <h3 className="text-2xl font-semibold mb-4">Ready to Get Started?</h3>
+        <div className="text-center mt-12 bg-card rounded-lg p-8 border border-border shadow-sm">
+          <h3 className="text-2xl font-semibold mb-4 text-foreground">Ready to Get Started?</h3>
           <p className="text-muted-foreground mb-6 text-lg">
             Download the app now and take the first step towards your dream job
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-glow"
+            <Button variant="default" size="lg"
               onClick={() => {
                 // Create a temporary link element to trigger download
                 const link = document.createElement('a');
@@ -143,9 +142,9 @@ const DownloadSection = () => {
               <Download className="w-4 h-4 mr-2" />
               Download for Windows
             </Button>
-            <Button variant="outline" size="lg" onClick={() => window.open('https://wa.me/919764980107', '_blank')}>
-              <FaWhatsapp className="w-4 h-4 mr-2" />
-              Contact Support
+            <Button variant="outline" size="lg" onClick={() => window.open('https://drive.google.com/file/d/1tOIF8UiAWO_v8bm5uDrkbdJ278JQPKrt/view', '_blank')}>
+              <Download className="w-4 h-4 mr-2" />
+              Download for Mac
             </Button>
           </div>
         </div>

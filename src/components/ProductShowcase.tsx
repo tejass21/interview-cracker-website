@@ -35,11 +35,11 @@ const productShowcaseItems = [
 
 const ProductShowcase = () => {
   return (
-    <section id="showcase" className="py-20 bg-gradient-subtle">
+    <section id="showcase" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            See <span className="gradient-text">Interview Cracker</span> in Action
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            See <span className="text-primary">DesierAI</span> in Action
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Real-time AI assistance that helps you ace every interview question
@@ -48,15 +48,15 @@ const ProductShowcase = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {productShowcaseItems.map((item, index) => (
-            <Card key={index} className="p-6 glow-border hover-lift group">
+            <Card key={index} className="p-6 border border-border bg-card hover-lift shadow-sm">
               <div className="mb-4">
                 <img 
                   src={item.src} 
                   alt={item.alt}
-                  className="w-full rounded-lg shadow-lg group-hover:shadow-glow transition-shadow duration-300"
+                  className="w-full rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-200"
                 />
               </div>
-              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h3>
               <p className="text-muted-foreground text-sm">
                 {item.description}
               </p>

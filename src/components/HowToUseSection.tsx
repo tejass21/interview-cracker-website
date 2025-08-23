@@ -8,20 +8,17 @@ const steps = [
   {
     icon: Download,
     title: "Launch the App",
-    description: "Download and click on the .exe file to launch the app instantly",
-    color: "bg-gradient-primary"
+    description: "Download and click on the .exe file to launch the app instantly"
   },
   {
     icon: Gift,
     title: "Free Trial",
-    description: "You get 5 free responses to test all features and understand the app flow",
-    color: "bg-gradient-accent"
+    description: "You get 5 free responses to test all features and understand the app flow"
   },
   {
     icon: CreditCard,
     title: "Subscription Required",
-    description: "After using the 5 trial responses, you'll need to subscribe for unlimited access",
-    color: "bg-gradient-primary"
+    description: "After using the 5 trial responses, you'll need to subscribe for unlimited access"
   }
 ];
 
@@ -33,7 +30,7 @@ const HowToUseSection = () => {
           <Badge variant="outline" className="mb-4">
             🚀 Getting Started
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             How to Use the App
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -43,9 +40,9 @@ const HowToUseSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-screen-lg mx-auto">
           {steps.map((step, index) => (
-            <Card key={index} className="relative overflow-hidden border-0 shadow-elegant">
+            <Card key={index} className="relative overflow-hidden border border-border bg-card hover-lift shadow-sm">
               <CardHeader className="text-center pb-4">
-                <div className={`${step.color} p-4 rounded-full w-fit mx-auto mb-4`}>
+                <div className="bg-primary p-4 rounded-lg w-fit mx-auto mb-4">
                   <step.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <div className="absolute top-4 right-4">
@@ -53,7 +50,7 @@ const HowToUseSection = () => {
                     Step {index + 1}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl">{step.title}</CardTitle>
+                <CardTitle className="text-xl text-foreground">{step.title}</CardTitle>
               </CardHeader>
               <CardContent className="text-center pt-0">
                 <p className="text-muted-foreground leading-relaxed">
@@ -64,15 +61,15 @@ const HowToUseSection = () => {
           ))}
         </div>
         
-        <div className="text-center bg-card rounded-2xl p-8 shadow-elegant max-w-screen-md mx-auto">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center justify-center gap-2">
+        <div className="text-center bg-card rounded-lg p-8 border border-border shadow-sm max-w-screen-md mx-auto">
+          <h3 className="text-2xl font-semibold mb-4 flex items-center justify-center gap-2 text-foreground">
             <FaWhatsapp className="w-6 h-6 text-primary" />
             Ready to Upgrade?
           </h3>
           <p className="text-muted-foreground mb-6">
             Contact us to upgrade your plan and unlock unlimited responses
           </p>
-          <Button variant="default" size="lg" className="bg-gradient-primary hover:shadow-glow transition-all"
+          <Button variant="default" size="lg" className="transition-all"
             onClick={() => window.open('https://wa.me/919764980107', '_blank')}
           >
             <FaWhatsapp className="w-4 h-4 mr-2" />

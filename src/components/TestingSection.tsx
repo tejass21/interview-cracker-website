@@ -38,27 +38,27 @@ const TestingSection = () => {
           <Badge variant="outline" className="mb-4">
             🧪 Testing Guide
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             How to Test the App
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Follow this simple testing process to see Interview Cracker in action
+            Follow this simple testing process to see DesierAI in action
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {testingSteps.map((step, index) => (
-            <Card key={index} className="relative border-0 shadow-elegant text-center">
+            <Card key={index} className="relative border border-border bg-card text-center hover-lift shadow-sm">
               <CardHeader className="pb-4">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge variant="default" className="w-8 h-8 rounded-full flex items-center justify-center bg-gradient-primary">
+                  <Badge variant="default" className="w-8 h-8 rounded-full flex items-center justify-center bg-primary">
                     {step.step}
                   </Badge>
                 </div>
-                <div className="bg-gradient-accent p-4 rounded-xl w-fit mx-auto mb-4 mt-4">
-                  <step.icon className="w-6 h-6 text-accent-foreground" />
+                <div className="bg-primary p-4 rounded-lg w-fit mx-auto mb-4 mt-4">
+                  <step.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-lg">{step.title}</CardTitle>
+                <CardTitle className="text-lg text-foreground">{step.title}</CardTitle>
               </CardHeader>
               <CardContent className="pt-0">
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -69,15 +69,15 @@ const TestingSection = () => {
           ))}
         </div>
         
-        <div className="bg-gradient-accent rounded-2xl p-8 text-center shadow-glow">
+        <div className="bg-card rounded-lg p-8 text-center border border-border shadow-sm">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Gift className="w-8 h-8 text-accent-foreground" />
-            <h3 className="text-3xl font-bold text-accent-foreground">Free Trial Included</h3>
+            <Gift className="w-8 h-8 text-primary" />
+            <h3 className="text-3xl font-bold text-foreground">Free Trial Included</h3>
           </div>
-          <p className="text-accent-foreground/90 text-xl mb-6">
+          <p className="text-muted-foreground text-xl mb-6">
             You have 5 trial responses under the free/basic plan to test all features
           </p>
-          <Button variant="hero" size="lg" className="bg-white/20 hover:bg-white/30">
+          <Button size="lg" className="bg-primary hover:bg-primary/90">
             Start Your Free Trial
           </Button>
         </div>
