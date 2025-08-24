@@ -6,11 +6,11 @@ import { fadeIn, scaleIn, staggerContainer, textReveal } from "@/lib/animations"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const rawLogos = [
-  { path: "assest/slack_logo.png", alt: "Slack" },
-  { path: "assest/google_meet_logo.png", alt: "Google Meet" },
-  { path: "assest/zoom_logo.png", alt: "Zoom" },
-  { path: "assest/webex_logo.png", alt: "Webex" },
-  { path: "assest/ms_teams_logo.png", alt: "Microsoft Teams" },
+  { path: "assest/slack.png", alt: "Slack" },
+  { path: "assest/teams.png", alt: "Microsoft Teams" },
+  { path: "assest/webex.png", alt: "Webex" },
+  { path: "assest/zoom.png", alt: "Zoom" },
+  { path: "assest/meet.png", alt: "Google Meet" },
 ];
 
 const PlatformSection = () => {
