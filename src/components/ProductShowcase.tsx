@@ -1,68 +1,130 @@
 import { Card } from "@/components/ui/card";
-
-const productShowcaseItems = [
-  {
-    src: "/assest/1.png",
-    alt: "AI-Powered Question Answering",
-    title: "AI-Powered Question Answering",
-    description: "Get instant, accurate, and comprehensive answers to any interview question, powered by advanced AI.",
-  },
-  {
-    src: "/assest/2.png",
-    alt: "Real-time Feedback",
-    title: "Real-time Feedback",
-    description: "Receive immediate constructive feedback on your responses, including clarity, conciseness, and relevance.",
-  },
-  {
-    src: "/assest/3.png",
-    alt: "Customizable Interview Simulations",
-    title: "Customizable Interview Simulations",
-    description: "Practice with tailored interview scenarios across various industries and roles to build confidence.",
-  },
-  {
-    src: "/assest/4.png",
-    alt: "Performance Analytics",
-    title: "Performance Analytics",
-    description: "Track your progress with detailed analytics and identify areas for improvement to optimize your preparation.",
-  },
-  {
-    src: "/assest/5.png",
-    alt: "Multi-language Support",
-    title: "Multi-language Support",
-    description: "Prepare for interviews in multiple languages, ensuring you're ready for global opportunities.",
-  },
-];
+import { motion } from "framer-motion";
+import { fadeIn, slideIn, staggerContainer, textReveal } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ProductShowcase = () => {
+  const { ref, isInView } = useScrollAnimation();
+  
   return (
     <section id="showcase" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <motion.div 
+          className="text-center mb-16"
+          variants={staggerContainer(0.2)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          ref={ref}
+        >
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-4 text-foreground"
+            variants={textReveal(0.1)}
+          >
             See <span className="text-primary">DesierAI</span> in Action
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            variants={textReveal(0.3)}
+          >
             Real-time AI assistance that helps you ace every interview question
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {productShowcaseItems.map((item, index) => (
-            <Card key={index} className="p-6 border border-border bg-card hover-lift shadow-sm">
-              <div className="mb-4">
-                <img 
-                  src={item.src} 
-                  alt={item.alt}
-                  className="w-full rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-200"
-                />
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h3>
-              <p className="text-muted-foreground text-sm">
-                {item.description}
-              </p>
-            </Card>
-          ))}
-        </div>
+        {/* Both Images Side by Side */}
+        <motion.div 
+          className="max-w-6xl mx-auto"
+          variants={staggerContainer(0.2, 0.4)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Candidate Image Frame */}
+            <motion.div
+              variants={slideIn("left", 0.1)}
+              whileHover={{ 
+                scale: 1.02, 
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <Card className="p-8 border border-border bg-card shadow-lg">
+                <div className="text-center">
+                  <motion.div 
+                    className="relative mx-auto mb-6 rounded-lg overflow-hidden border-4 border-primary/20 shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <img 
+                      src="/assest/Candidate.png" 
+                      alt="Candidate"
+                      className="max-w-full h-auto"
+                    />
+                    {/* Smaller Black Box for Candidate */}
+                    <motion.div 
+                      className="absolute top-4 right-4 bg-black/90 text-white p-3 rounded-md text-sm max-w-32 shadow-lg"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.8 }}
+                    >
+                      <div className="font-semibold mb-1">AI Assistant</div>
+                      <div className="text-xs opacity-90">• Real-time help</div>
+                      <div className="text-xs opacity-90">• Smart responses</div>
+                    </motion.div>
+                  </motion.div>
+                  <h3 className="text-2xl font-semibold text-foreground mb-3">Candidate</h3>
+                  <p className="text-muted-foreground text-lg mb-4">Gets AI assistance during interviews</p>
+                  <p className="text-muted-foreground">
+                    DesierAI provides real-time assistance to candidates during interviews, 
+                    helping them answer questions confidently and professionally.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Interviewer Image Frame */}
+            <motion.div
+              variants={slideIn("right", 0.2)}
+              whileHover={{ 
+                scale: 1.02, 
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <Card className="p-8 border border-border bg-card shadow-lg">
+                <div className="text-center">
+                  <motion.div 
+                    className="relative mx-auto mb-6 rounded-lg overflow-hidden border-4 border-primary/20 shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <img 
+                      src="/assest/Interviewer.png" 
+                      alt="Interviewer"
+                      className="max-w-full h-auto"
+                    />
+                    {/* New Black Box for Interviewer */}
+                    <motion.div 
+                      className="absolute bottom-4 left-4 bg-black/90 text-white p-3 rounded-md text-sm max-w-36 shadow-lg"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: 1 }}
+                    >
+                      <div className="font-semibold mb-1">Interviewer</div>
+                      <div className="text-xs opacity-90">• Conducts assessment</div>
+                      <div className="text-xs opacity-90">• Evaluates skills</div>
+                    </motion.div>
+                  </motion.div>
+                  <h3 className="text-2xl font-semibold text-foreground mb-3">Interviewer</h3>
+                  <p className="text-muted-foreground text-lg mb-4">Conducts professional interviews</p>
+                  <p className="text-muted-foreground">
+                    Interviewers conduct thorough assessments while candidates receive 
+                    seamless AI assistance that remains completely undetectable.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

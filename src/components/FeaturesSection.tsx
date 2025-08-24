@@ -2,6 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Zap, Eye, Brain, Lock, Code, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { fadeIn, scaleIn, staggerContainer, textReveal } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const features = [
   {
@@ -49,62 +52,101 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  const { ref, isInView } = useScrollAnimation();
+  
   return (
     <section id="features" className="section-modern bg-muted/30">
       <div className="container-modern">
-        <div className="text-center mb-16">
-          <Badge className="badge-modern mb-6 fade-in">
-            <CheckCircle className="w-3 h-3 mr-1" />
-            Why Choose DesierAI
-          </Badge>
-          <h2 className="text-heading mb-6 slide-up">
+        <motion.div 
+          className="text-center mb-16"
+          variants={staggerContainer(0.2)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          ref={ref}
+        >
+          <motion.div variants={fadeIn("up", 0.1)}>
+            <Badge className="badge-modern mb-6 fade-in">
+              <CheckCircle className="w-3 h-3 mr-1" />
+              Why Choose DesierAI
+            </Badge>
+          </motion.div>
+          <motion.h2 
+            className="text-heading mb-6 slide-up"
+            variants={textReveal(0.2)}
+          >
             Powerful Features That Give You
             <span className="text-gradient block">The Competitive Edge</span>
-          </h2>
-          <p className="text-subheading max-w-3xl mx-auto slide-up">
+          </motion.h2>
+          <motion.p 
+            className="text-subheading max-w-3xl mx-auto slide-up"
+            variants={textReveal(0.4)}
+          >
             DesierAI is designed to help candidates excel during online interviews with cutting-edge AI technology and proven success rates.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         
-        <div className="grid-features">
+        <motion.div 
+          className="grid-features"
+          variants={staggerContainer(0.1, 0.3)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {features.map((feature, index) => (
-            <Card key={index} className="card-elevated group hover-lift scale-in">
-              <CardContent className="p-8">
-                {/* Badge */}
-                <div className="flex justify-between items-start mb-6">
-                  <Badge variant="secondary" className="text-xs font-medium">
-                    {feature.badge}
-                  </Badge>
-                </div>
-                
-                {/* Icon */}
-                <div className={`w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-200`}>
-                  <feature.icon className={`w-8 h-8 ${feature.color}`} />
-                </div>
-                
-                {/* Content */}
-                <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-                
-                {/* Hover Effect */}
-                <div className="mt-6 pt-6 border-t border-border/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  <div className="flex items-center gap-2 text-sm text-primary font-medium">
-                    <CheckCircle className="w-4 h-4" />
-                    <span>Learn more</span>
+            <motion.div
+              key={index}
+              variants={scaleIn(index * 0.1)}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -8,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <Card className="card-elevated group hover-lift scale-in">
+                <CardContent className="p-8">
+                  {/* Badge */}
+                  <div className="flex justify-between items-start mb-6">
+                    <Badge variant="secondary" className="text-xs font-medium">
+                      {feature.badge}
+                    </Badge>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                  
+                  {/* Icon */}
+                  <motion.div 
+                    className={`w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-200`}
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                  >
+                    <feature.icon className={`w-8 h-8 ${feature.color}`} />
+                  </motion.div>
+                  
+                  {/* Content */}
+                  <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                  
+                  {/* Hover Effect */}
+                  <div className="mt-6 pt-6 border-t border-border/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="flex items-center gap-2 text-sm text-primary font-medium">
+                      <CheckCircle className="w-4 h-4" />
+                      <span>Learn more</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <motion.div 
+          className="text-center mt-16"
+          variants={fadeIn("up", 0.8)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <div className="card-modern p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-4">
               Ready to Transform Your Interview Experience?
@@ -112,12 +154,17 @@ const FeaturesSection = () => {
             <p className="text-muted-foreground mb-6">
               Join thousands of successful professionals who have landed their dream jobs with DesierAI
             </p>
-            <Button size="lg" className="btn-primary hover-glow">
-              Start Your Free Trial
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button size="lg" className="btn-primary hover-glow">
+                Start Your Free Trial
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

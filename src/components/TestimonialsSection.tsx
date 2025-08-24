@@ -10,6 +10,9 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { motion } from "framer-motion";
+import { fadeIn, scaleIn, staggerContainer, textReveal } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   {
@@ -71,6 +74,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const { ref, isInView } = useScrollAnimation();
   const apiRef = useRef<CarouselApi | null>(null);
   const timerRef = useRef<number | null>(null);
   const pausedRef = useRef(false);
@@ -107,19 +111,33 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="section-modern bg-muted/30">
       <div className="container-modern">
-        <div className="text-center mb-16">
-          <Badge className="badge-modern mb-6 fade-in">
-            <Star className="w-3 h-3 mr-1" />
-            Success Stories
-          </Badge>
-          <h2 className="text-heading mb-6 slide-up">
+        <motion.div 
+          className="text-center mb-16"
+          variants={staggerContainer(0.2)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          ref={ref}
+        >
+          <motion.div variants={fadeIn("up", 0.1)}>
+            <Badge className="badge-modern mb-6 fade-in">
+              <Star className="w-3 h-3 mr-1" />
+              Success Stories
+            </Badge>
+          </motion.div>
+          <motion.h2 
+            className="text-heading mb-6 slide-up"
+            variants={textReveal(0.2)}
+          >
             Loved by
             <span className="text-gradient block">Professionals</span>
-          </h2>
-          <p className="text-subheading max-w-2xl mx-auto slide-up">
+          </motion.h2>
+          <motion.p 
+            className="text-subheading max-w-2xl mx-auto slide-up"
+            variants={textReveal(0.4)}
+          >
             Real stories from candidates who turned interviews into offers with DesierAI
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div
           onMouseEnter={() => (pausedRef.current = true)}
@@ -178,22 +196,44 @@ const TestimonialsSection = () => {
         </div>
         
         {/* Stats */}
-        <div className="mt-16 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
+        <motion.div 
+          className="mt-16 text-center"
+          variants={fadeIn("up", 0.8)}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
+            variants={staggerContainer(0.1, 0.6)}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.div 
+              className="text-center"
+              variants={scaleIn(0.1)}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="text-3xl font-bold text-primary mb-2">10,000+</div>
               <div className="text-sm text-muted-foreground">Happy Users</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              variants={scaleIn(0.2)}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="text-3xl font-bold text-primary mb-2">95%</div>
               <div className="text-sm text-muted-foreground">Success Rate</div>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              variants={scaleIn(0.3)}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="text-3xl font-bold text-primary mb-2">₹50LPA</div>
               <div className="text-sm text-muted-foreground">Highest Package</div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
