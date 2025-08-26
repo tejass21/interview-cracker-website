@@ -3,13 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, Shield, AlertTriangle, Monitor, Apple } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useDownloadWithAuth } from "@/hooks/useDownloadWithAuth";
 
 const downloads = [
   {
     platform: "Windows",
     description: "Compatible with Windows 10/11",
     icon: Monitor,
-    url: "/assest/InterviewCrackerSetup.exe"
+    url: "https://1drv.ms/u/s!ArtKXkK6-w6FjrtwaangEdO2SDuEkQ?e=QDQlAR"
   },
   {
     platform: "Mac",
@@ -27,6 +28,8 @@ const usageRules = [
 ];
 
 const DownloadSection = () => {
+  const { handleDownload } = useDownloadWithAuth();
+  
   return (
     <section id="downloads" className="py-20 bg-background">
       <div className="container px-4">
@@ -57,20 +60,7 @@ const DownloadSection = () => {
                   variant="default" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => {
-                    if (download.platform === "Windows") {
-                      // Create a temporary link element to trigger download
-                      const link = document.createElement('a');
-                      link.href = '/assest/InterviewCrackerSetup.exe';
-                      link.download = 'InterviewCrackerSetup.exe';
-                      link.style.display = 'none';
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                    } else {
-                      window.open(download.url, '_blank');
-                    }
-                  }}
+                  onClick={() => handleDownload(download.url, download.platform)}
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download for {download.platform}
@@ -128,21 +118,12 @@ const DownloadSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="default" size="lg"
-              onClick={() => {
-                // Create a temporary link element to trigger download
-                const link = document.createElement('a');
-                link.href = '/assest/InterviewCrackerSetup.exe';
-                link.download = 'InterviewCrackerSetup.exe';
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
+              onClick={() => handleDownload('https://1drv.ms/u/s!ArtKXkK6-w6FjrtwaangEdO2SDuEkQ?e=QDQlAR', 'Windows')}
             >
               <Download className="w-4 h-4 mr-2" />
               Download for Windows
             </Button>
-            <Button variant="outline" size="lg" onClick={() => window.open('https://drive.google.com/file/d/1tOIF8UiAWO_v8bm5uDrkbdJ278JQPKrt/view', '_blank')}>
+            <Button variant="outline" size="lg" onClick={() => handleDownload('https://drive.google.com/file/d/1tOIF8UiAWO_v8bm5uDrkbdJ278JQPKrt/view', 'Mac')}>
               <Download className="w-4 h-4 mr-2" />
               Download for Mac
             </Button>

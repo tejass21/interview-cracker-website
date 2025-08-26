@@ -6,12 +6,14 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, slideIn, scaleIn } from "@/lib/animations";
+import { useDownloadWithAuth } from "@/hooks/useDownloadWithAuth";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const { handleDownload } = useDownloadWithAuth();
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
@@ -175,7 +177,11 @@ const Navbar = () => {
               </motion.div>
             </SignedOut>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="sm" className="btn-outline hover-glow">
+              <Button 
+                size="sm" 
+                className="btn-outline hover-glow"
+                onClick={() => handleDownload('https://1drv.ms/u/s!ArtKXkK6-w6FjrtwaangEdO2SDuEkQ?e=QDQlAR', 'Windows')}
+              >
                 <Download className="w-4 h-4 mr-2" />
                 Download
               </Button>
@@ -271,7 +277,11 @@ const Navbar = () => {
                     </motion.div>
                   </SignedOut>
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button size="sm" className="w-full btn-outline">
+                    <Button 
+                      size="sm" 
+                      className="w-full btn-outline"
+                      onClick={() => handleDownload('https://1drv.ms/u/s!ArtKXkK6-w6FjrtwaangEdO2SDuEkQ?e=QDQlAR', 'Windows')}
+                    >
                       <Download className="w-4 h-4 mr-2" />
                       Download
                     </Button>

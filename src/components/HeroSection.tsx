@@ -4,9 +4,11 @@ import { Download, Shield, Zap, Eye, ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn, scaleIn, staggerContainer, textReveal } from "@/lib/animations";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useDownloadWithAuth } from "@/hooks/useDownloadWithAuth";
 
 const HeroSection = () => {
   const { ref, isInView } = useScrollAnimation();
+  const { handleDownload } = useDownloadWithAuth();
   
   return (
     <section className="section-modern bg-background relative overflow-hidden">
@@ -56,11 +58,20 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12 slide-up"
             variants={fadeIn("up", 0.6)}
           >
-            <Button size="lg" className="btn-primary text-lg px-8 py-6 hover-glow">
+            <Button 
+              size="lg" 
+              className="btn-primary text-lg px-8 py-6 hover-glow"
+              onClick={() => handleDownload('https://1drv.ms/u/s!ArtKXkK6-w6FjrtwaangEdO2SDuEkQ?e=QDQlAR', 'Windows')}
+            >
               <Download className="w-5 h-5 mr-2" />
               Download for Windows
             </Button>
-            <Button variant="outline" size="lg" className="btn-outline text-lg px-8 py-6">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="btn-outline text-lg px-8 py-6"
+              onClick={() => handleDownload('https://drive.google.com/file/d/1tOIF8UiAWO_v8bm5uDrkbdJ278JQPKrt/view', 'Mac')}
+            >
               <Download className="w-5 h-5 mr-2" />
               Download for Mac
             </Button>

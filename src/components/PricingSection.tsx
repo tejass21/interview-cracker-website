@@ -6,6 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeIn, scaleIn, staggerContainer, textReveal } from "@/lib/animations";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useDownloadWithAuth } from "@/hooks/useDownloadWithAuth";
 
 const plans = [
   {
@@ -72,6 +73,7 @@ const plans = [
 
 const PricingSection = () => {
   const { ref, isInView } = useScrollAnimation();
+  const { handleDownload } = useDownloadWithAuth();
   
   return (
     <section id="pricing" className="section-modern bg-background">
@@ -181,13 +183,7 @@ const PricingSection = () => {
                     className="w-full hover-glow"
                     onClick={() => {
                       if (plan.name === "Free") {
-                        const link = document.createElement('a');
-                        link.href = '/assest/InterviewCrackerSetup.exe';
-                        link.download = 'InterviewCrackerSetup.exe';
-                        link.style.display = 'none';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
+                        handleDownload('https://1drv.ms/u/s!ArtKXkK6-w6FjrtwaangEdO2SDuEkQ?e=QDQlAR', 'Windows');
                       } else {
                         window.open('https://wa.me/919764980107', '_blank');
                       }
